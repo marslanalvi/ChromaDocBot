@@ -1,4 +1,5 @@
 # **Chatbot Project with Flask and ChromaDB**
+![ai](https://github.com/user-attachments/assets/8dc6e09a-50bc-4921-beee-a6021d28f9ec)
 
 This project implements a **document-based chatbot** capable of answering questions using a combination of:
 
