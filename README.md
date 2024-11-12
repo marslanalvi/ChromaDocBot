@@ -32,3 +32,47 @@ Users can type their questions and receive AI-powered answers dynamically.
 git clone https://github.com/your-username/ChromaDocBot.git
 cd ChromaDocBot
 
+How It Works
+Backend Workflow
+Document Preprocessing:
+
+Documents from news_articles are chunked and embedded using OpenAI.
+These embeddings are stored in ChromaDB.
+Query Handling:
+
+The user query is embedded and compared with stored embeddings in ChromaDB.
+The most relevant document chunks are retrieved and sent to OpenAI GPT for response generation.
+Frontend Workflow
+The index.html provides a chatbot interface.
+The user input is sent to the /chat API endpoint.
+The AI response is displayed dynamically.
+Key Achievements
+Integration of ChromaDB and OpenAI:
+Efficient storage and retrieval of document embeddings for high-performance querying.
+Customizable Document Pipeline:
+The system allows for dynamic addition of documents.
+Interactive Frontend:
+A responsive, user-friendly chatbot interface.
+Future Improvements
+Authentication:
+Add user authentication for secure access.
+Advanced Query Parsing:
+Improve query handling with natural language preprocessing.
+Multi-File Support:
+Enable support for other file types (e.g., PDFs, Word documents).
+Deployment:
+Deploy the project on a cloud platform like Heroku, AWS, or GCP.
+Why This Project?
+Purpose
+Simplify access to information within large document repositories.
+Demonstrate the integration of advanced AI and database technologies.
+Technologies Used
+Flask: For backend APIs and routing.
+ChromaDB: For storing and retrieving document embeddings.
+OpenAI: For semantic understanding and response generation.
+HTML, CSS, JS: For building a responsive frontend.
+Contributing
+Contributions are welcome! Please fork the repository, make changes, and submit a pull request.
+
+
+
