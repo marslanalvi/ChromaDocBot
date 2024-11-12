@@ -83,7 +83,7 @@ OpenAI: For semantic understanding and response generation.
 HTML, CSS, JS: For building a responsive frontend.
 
 Contributing
-Contributions are welcome! Please fork the repository, make changes, and submit a pull request.
+Contributions are welcome! Please fork the repository, make changes, and submit a pull request. Courtesy to: https://github.com/pdichone/rag-intro-chat-with-docs
 
 
 
