@@ -68,7 +68,7 @@ OPENAI_API_KEY=your_openai_api_key
 
 ### **Backend Workflow**
 1. **Document Preprocessing**:  
-   - Documents from the `news_articles` directory are chunked and embedded using **OpenAI**.  
+   - Documents from the `data` directory are chunked and embedded using **OpenAI**.  
    - These embeddings are stored in **ChromaDB**.
 
 2. **Query Handling**:  
