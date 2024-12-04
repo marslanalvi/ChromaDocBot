@@ -47,7 +47,7 @@ The goal of this project is to build a chatbot that processes documents, generat
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/ChromaDocBot.git
+git clone https://github.com/marslanalvi/ChromaDocBot.git
 cd ChromaDocBot
 ```
 
