@@ -1,6 +1,6 @@
-# Sign-nize Customer Support System
+# Customer Support System
 
-A professional AI-powered customer support system for Sign-nize, a company specializing in custom sign design and production. This system provides a conversational interface to gather customer requirements and create accurate design mockups.
+A professional AI-powered customer support system a company specializing in custom sign design and production. This system provides a conversational interface to gather customer requirements and create accurate design mockups.
 
 ## Features
 
