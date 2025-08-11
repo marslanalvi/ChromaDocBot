@@ -2,3 +2,7 @@ flask
 chromadb
 openai
 python-dotenv
+requests
+datetime
+uuid
+PyPDF2

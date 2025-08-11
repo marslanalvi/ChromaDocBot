@@ -1,8 +1,14 @@
 def query_documents(collection, questions, n_results=2):
-    results = collection.query(query_texts=questions, n_results=n_results)
-    relevant_chunk = [doc for sublist in results["documents"] for doc in sublist]
-    print("==== Returning relevant chunks ====")
-    return relevant_chunk
+    print("Querying Chroma...")
+    try:
+        results = collection.query(query_texts=questions, n_results=n_results)
+        relevant_chunk = [doc for sublist in results["documents"] for doc in sublist]
+        print("Returned relevant chunks")
+        return relevant_chunk
+    except Exception as e:
+        print("Chroma query failed:", e)
+        return [""]  # return empty context to continue
+
 
 def generate_response(client, question, relevant_chunk):
     context = "\n\n".join(relevant_chunk)

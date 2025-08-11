@@ -1,130 +1,172 @@
-# **Chatbot Project with Flask and ChromaDB**
-![ai](https://github.com/user-attachments/assets/8dc6e09a-50bc-4921-beee-a6021d28f9ec)
+# Sign-nize Customer Support System
 
-This project implements a **document-based chatbot** capable of answering questions using a combination of:
+A professional AI-powered customer support system for Sign-nize, a company specializing in custom sign design and production. This system provides a conversational interface to gather customer requirements and create accurate design mockups.
 
-- **Flask** (as the web framework)  
-- **ChromaDB** (for document storage and querying)  
-- **OpenAI** (for embeddings and natural language responses)  
-- and a custom **frontend** for user interaction.
+## Features
+
+### 🎨 Professional 3D UI Design
+- Modern gradient-based design with 3D effects
+- Responsive layout that works on all devices
+- Smooth animations and transitions
+- Professional color scheme and typography
+
+### 🤖 AI-Powered Customer Support
+- Intelligent conversation flow following Sign-nize's business process
+- Warm, professional, and engaging tone
+- Handles objections and edge cases gracefully
+- Maintains conversation context and history
+
+### 📋 Structured Information Gathering
+The system systematically collects:
+- Customer identity confirmation
+- Sign specifications (size, dimensions, material)
+- Installation requirements (surface type, indoor/outdoor)
+- Timeline and deadline requirements
+- Budget considerations
+- Logo and design preferences
+- Delivery location details
+
+### 💬 Interactive Features
+- Real-time chat interface
+- Quick action buttons for common requests
+- Typing indicators and loading states
+- Message history and session management
+- Minimize/maximize functionality
+
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd ChromaDocBot
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory:
+   ```
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+4. **Run the application**
+   ```bash
+   python app.py
+   ```
+
+5. **Access the system**
+   Open your browser and navigate to `http://localhost:5000`
+
+## System Architecture
+
+### Backend (Flask)
+- **app.py**: Main Flask application with Sign-nize system prompt
+- **environment.py**: Environment variable management
+- Session management for conversation history
+- OpenAI GPT-4 integration for intelligent responses
+
+### Frontend (HTML/CSS/JavaScript)
+- **templates/index.html**: Modern 3D UI interface
+- **static/style.css**: Professional styling with CSS variables
+- **static/script.js**: Interactive functionality and API communication
+
+## Conversation Flow
+
+The AI follows a structured conversation flow:
+
+1. **Introduction & Permission**: Greet customer and confirm availability
+2. **Identity Confirmation**: Verify customer identity
+3. **Permission to Continue**: Ensure customer is ready to proceed
+4. **Information Gathering**: Systematic collection of sign requirements:
+   - Size & dimensions
+   - Material preferences
+   - Installation surface
+   - Timeline/deadline
+   - Indoor/outdoor placement
+   - City and state
+   - Permit assistance needs
+   - Budget range
+   - Logo/design requirements
+5. **Wrap-up**: Summarize requirements and confirm next steps
+
+## Key Features
+
+### Professional Tone Management
+- Adjusts tone based on customer communication style
+- Uses appropriate slang words for casual conversations
+- Maintains professionalism for business interactions
+
+### Edge Case Handling
+- Busy customers: Offers callback scheduling
+- Unavailable customers: Leaves messages with others
+- Pricing questions: Redirects to design confirmation first
+- Uncertain details: Provides recommendations
+
+### Technical Features
+- Session persistence across conversations
+- Real-time message processing
+- Error handling and recovery
+- Responsive design for all screen sizes
+- Accessibility considerations
+
+## Customization
+
+### Branding
+- Update colors in CSS variables (`:root` section)
+- Replace logo and branding elements
+- Modify company information in the system prompt
+
+### Conversation Flow
+- Edit the `SIGN_NIZE_SYSTEM_PROMPT` in `app.py`
+- Adjust question sequences and timing
+- Modify response templates and tone
+
+### UI/UX
+- Customize CSS variables for different color schemes
+- Modify animations and transitions
+- Add new quick action buttons
+
+## API Endpoints
+
+- `GET /`: Main chat interface
+- `POST /chat`: Send and receive messages
+- `GET /chat/<session_id>/history`: Get conversation history
+- `DELETE /chat/<session_id>/clear`: Clear session
+- `GET /sessions`: List active sessions
+
+## Requirements
+
+- Python 3.8+
+- Flask
+- OpenAI API key
+- Modern web browser
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For technical support or questions about the Sign-nize customer support system, please contact the development team.
 
 ---
 
-## **Overview**
-
-The goal of this project is to build a chatbot that processes documents, generates embeddings, stores them in a database (**ChromaDB**), and retrieves the most relevant context to answer user queries. The project integrates backend functionality with a dynamic frontend for seamless interaction.
-
----
-
-## **Project Features**
-
-### **1. Document Processing**
-- Documents (e.g., text files) are loaded from a directory.  
-- Each document is split into smaller chunks for efficient storage and querying.  
-- Preprocessing ensures all chunks are clean and ready for embeddings.
-
-### **2. Embedding Generation**
-- Embeddings for each document chunk are generated using **OpenAI's embedding model** (`text-embedding-3-small`).  
-- These embeddings represent the semantic meaning of each chunk.
-
-### **3. Database Storage**
-- **ChromaDB** is used as the vector database to store document embeddings and metadata.  
-- Each document chunk is stored with its embedding for quick and efficient retrieval.
-
-### **4. Query and Response**
-- When the user asks a question, the system:
-  1. Converts the question into an embedding.  
-  2. Queries **ChromaDB** for the most relevant document chunks.  
-  3. Passes these chunks to **OpenAI's GPT model** to generate a concise response.
-
-### **5. Frontend**
-- A responsive and user-friendly chatbot interface.  
-- Users can type their questions and receive **AI-powered answers dynamically**.
-
----
-
-## **Setup**
-
-### **1. Clone the Repository**
-```bash
-git clone https://github.com/marslanalvi/ChromaDocBot.git
-cd ChromaDocBot
-```
-
-### **2. Install Required Dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-### **3. Add Environment Variables**
-Create a `.env` file in the root directory and add your OpenAI API key:
-```plaintext
-OPENAI_API_KEY=your_openai_api_key
-```
-
----
-
-## **How It Works**
-
-### **Backend Workflow**
-1. **Document Preprocessing**:  
-   - Documents from the `data` directory are chunked and embedded using **OpenAI**.  
-   - These embeddings are stored in **ChromaDB**.
-
-2. **Query Handling**:  
-   - The user query is embedded and compared with stored embeddings in **ChromaDB**.  
-   - The most relevant document chunks are retrieved and sent to **OpenAI's GPT** for response generation.
-
-### **Frontend Workflow**
-- The `index.html` provides a chatbot interface.  
-- The user input is sent to the `/chat` API endpoint.  
-- The AI response is displayed dynamically.
-
----
-
-## **Key Achievements**
-
-- **Integration of ChromaDB and OpenAI**:  
-  Efficient storage and retrieval of document embeddings for high-performance querying.
-
-- **Customizable Document Pipeline**:  
-  The system allows for dynamic addition of documents.
-
-- **Interactive Frontend**:  
-  A responsive, user-friendly chatbot interface.
-
----
-
-## **Future Improvements**
-
-1. **Authentication**:  
-   Add user authentication for secure access.
-
-2. **Advanced Query Parsing**:  
-   Improve query handling with natural language preprocessing.
-
-3. **Multi-File Support**:  
-   Enable support for other file types (e.g., PDFs, Word documents).
-
-4. **Deployment**:  
-   Deploy the project on a cloud platform like **Heroku**, **AWS**, or **GCP**.
-
----
-
-## **Why This Project?**
-
-### **Purpose**
-- Simplify access to information within large document repositories.  
-- Demonstrate the integration of advanced AI and database technologies.
-
-### **Technologies Used**
-- **Flask**: For backend APIs and routing.  
-- **ChromaDB**: For storing and retrieving document embeddings.  
-- **OpenAI**: For semantic understanding and response generation.  
-- **HTML, CSS, JS**: For building a responsive frontend.
-
----
-
-## **Contributing**
-Contributions are welcome! Please fork the repository, make changes, and submit a pull request.  
-*Courtesy to*: [RAG Intro Chat with Docs](https://github.com/pdichone/rag-intro-chat-with-docs)
+**Sign-nize** - Custom Sign Design & Production Excellence
